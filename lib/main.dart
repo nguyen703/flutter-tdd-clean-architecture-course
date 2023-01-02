@@ -1,5 +1,9 @@
+import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/number_trivia_bloc.dart';
+import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/pages/complex_page.dart';
+import 'package:clean_architecture_tdd_course/injection_container.dart';
 import 'package:flutter/material.dart';
-import 'features/number_trivia/presentation/pages/number_trivia_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'injection_container.dart' as di;
 
 void main() async {
@@ -11,13 +15,17 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Number Trivia',
-      theme: ThemeData(
-        primaryColor: Colors.green.shade800,
-        accentColor: Colors.green.shade600,
+    return BlocProvider(
+      create: (_) => sl<NumberTriviaBloc>(),
+      child: MaterialApp(
+        title: 'Number Trivia',
+        theme: ThemeData(
+          primaryColor: Colors.green.shade800,
+          colorScheme: ColorScheme.fromSwatch()
+              .copyWith(secondary: Colors.green.shade600),
+        ),
+        home: ComplexPage(),
       ),
-      home: NumberTriviaPage(),
     );
   }
 }
