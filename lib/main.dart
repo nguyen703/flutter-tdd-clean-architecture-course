@@ -3,7 +3,9 @@ import 'package:clean_architecture_tdd_course/features/number_trivia/presentatio
 import 'package:clean_architecture_tdd_course/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'generated/l10n.dart';
 import 'injection_container.dart' as di;
 
 void main() async {
@@ -24,6 +26,14 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSwatch()
               .copyWith(secondary: Colors.green.shade600),
         ),
+        supportedLocales: S.delegate.supportedLocales,
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate
+        ],
+        locale: Locale('vi'),
         home: ComplexPage(),
       ),
     );

@@ -7,6 +7,8 @@ import 'package:clean_architecture_tdd_course/features/number_trivia/presentatio
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../injection_container.dart';
+
 class ComplexPage extends StatelessWidget {
   const ComplexPage({Key key}) : super(key: key);
 
@@ -26,7 +28,8 @@ class ComplexPage extends StatelessWidget {
                       MaterialPageRoute(builder: (_) => NumberTriviaPage()));
                 },
                 child: Text(
-                  "Push to page 2",
+                  // S.of(context).pushToPage2,
+                  S.current.pushToPage2,
                   style: TextStyle(fontSize: 24),
                 )),
             BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
@@ -49,9 +52,10 @@ class ComplexPage extends StatelessWidget {
             ),
             const Trigger(),
             TextButton(
-                onPressed: () => BlocProvider.of<NumberTriviaBloc>(context)
-                    .add(GetTriviaForRandomNumber()),
-                child: Text("Trigger in module"))
+                onPressed: () =>
+                    sl.get<NumberTriviaBloc>().add(GetTriviaForRandomNumber()),
+                child: Text("Trigger from internal module",
+                    style: TextStyle(fontSize: 20)))
           ])),
     );
   }

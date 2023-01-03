@@ -13,7 +13,7 @@ class Trigger extends StatelessWidget {
           onPressed: () {
             facade.getRandomTrivia();
           },
-          child: Text("Trigger")),
+          child: Text(S.of(context).trigger, style: TextStyle(fontSize: 20))),
     );
   }
 }

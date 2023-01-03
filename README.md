@@ -2,6 +2,11 @@
 
 ### The whole accompanying tutorial series is available at :point_right: [this link](https://resocoder.com/flutter-clean-architecture-tdd/) :point_left:.
 
+### Diagram
+```
+https://drive.google.com/file/d/1-OabeggUAcPmtFDefG6MN43DQSWWL_-4/view?usp=sharing
+```
+
 #### _Find more tutorials on [resocoder.com](https://resocoder.com)_
 
 <br />
